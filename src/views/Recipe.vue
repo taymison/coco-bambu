@@ -62,7 +62,7 @@
 
 
 <script>
-import axios from 'axios';
+import api from '../api';
 import moment from 'moment';
 import Thumb from '@/components/recipe/Thumb.vue';
 import List from '@/components/recipe/List.vue';
@@ -110,7 +110,7 @@ export default {
     },
   },
   mounted() {
-    axios.get(`http://localhost:3000/recipes/${this.id}`).then((response) => {
+    api.getRecipe(this.id).then((response) => {
       this.recipe = response.data;
     });
   },

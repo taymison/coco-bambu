@@ -30,7 +30,7 @@
 </style>
 
 <script>
-import axios from 'axios';
+import api from '../api';
 import NavBar from '@/components/orders/NavBar.vue';
 import SeparatorLine from '@/components/orders/SeparatorLine.vue';
 import Order from '@/components/orders/Order.vue';
@@ -49,7 +49,7 @@ export default {
     };
   },
   mounted() {
-    axios.get('http://localhost:3000/recipes').then((response) => {
+    api.getRecipes().then((response) => {
       this.orders = response.data;
       this.ordersFiltred = this.orders;
     });
